@@ -1,0 +1,22 @@
+<h1 style="text-align: center;font-weight: lighter;"><u>List Of Stores</u></h1>
+<div class="container">
+    <button class="btn btn-primary" (click)=addStore()>
+    AddStore
+  </button>
+</div>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">StoreID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let store of storeList">
+            <th scope="row">{{store.storeId}}</th>
+            <td>{{store.storeName}}</td>
+            <td>{{store.storeLocation}}</td>
+        </tr>
+    </tbody>
+</table>

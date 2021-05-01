@@ -1,0 +1,46 @@
+<h1 style="font-weight:bolder;margin-top: 60px;margin-left: 450px;"><u>Edit Mobile</u></h1>
+<div class="card" style="width: 30rem; margin-top: 30px;margin-left: 400px;">
+    <div class="card-body">
+        <div class="align1">
+            <form class="align" [formGroup]="mobileForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="mobileImeiid">Mobile IMEID</label>
+                    <input type="text" class="form-control" id="mobileImeIID" [(ngModel)]=mobileForm1.mobileImeIID formControlName="mobileImeIID">
+                </div>
+                <div *ngIf="mobileForm.controls['mobileImeIID'].invalid && (mobileForm.controls['mobileImeIID'].dirty || mobileForm.controls['mobileImeIID'].touched )" class="text-danger">
+                    Id is required
+                </div>
+                <div *ngIf="mobileForm.controls['mobileImeIID'].errors?.maxlength && (mobileForm.controls['mobileImeIID'].dirty || mobileForm.controls['mobileImeIID'].touched )" class="text-danger">
+                    Id should be of 16 digits
+                </div>
+                <div *ngIf="mobileForm.controls['mobileImeIID'].errors?.minlength && (mobileForm.controls['mobileImeIID'].dirty || mobileForm.controls['mobileImeIID'].touched )" class="text-danger">
+                    Id should be equal to 16 digits
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" id="mobilePrice" [(ngModel)]=mobileForm1.mobilePrice formControlName="mobilePrice">
+                </div>
+                <div *ngIf="mobileForm.controls['mobilePrice'].errors?.required && (mobileForm.controls['mobilePrice'].dirty || mobileForm.controls['mobilePrice'].touched)" class="text-danger">
+                    Price is required
+                </div>
+                <div class="form-group">
+                    <label for="model">Model Name</label>
+                    <input type="text" class="form-control" id="modelName" [(ngModel)]=mobileForm1.modelName formControlName="modelName">
+                </div>
+                <div *ngIf="mobileForm.controls['modelName'].errors?.required && (mobileForm.controls['modelName'].dirty || mobileForm.controls['modelName'].touched)" class="text-danger">
+                    Model name is required
+                </div>
+                <div class="form-group">
+                    <label for="price">Store ID</label>
+                    <input type="text" class="form-control" id="storeId" [(ngModel)]=mobileForm1.storeId formControlName="storeId">
+                </div>
+                <div *ngIf="mobileForm.controls['storeId'].errors?.required && (mobileForm.controls['storeId'].dirty || mobileForm.controls['storeId'].touched)" class="text-danger">
+                    Store ID is required
+                </div>
+                <div class="button">
+                    <button class="btn btn-primary" type="submit">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

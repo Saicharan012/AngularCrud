@@ -1,0 +1,67 @@
+<!-- <h1 style="text-align: center;font-weight: lighter;"><u>List Of Mobiles</u></h1>
+<div class="container">
+    <button class="btn btn-primary" (click)=addEmployee()>
+    AddMobile
+  </button>
+</div>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Mobile IMEI Id</th>
+            <th scope="col">Model Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">StoreID</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <mat-spinner class="spin" *ngIf="showSpinner"></mat-spinner>
+        <tr *ngFor="let mobile of mobileList">
+
+            <th scope="row">{{mobile.mobileImeIID}}</th>
+            <td>{{mobile.modelName}}</td>
+            <td>{{mobile.mobilePrice}}</td>
+            <td>{{mobile.storeId}}</td>
+            <td>
+                <a role="button" (click)="editMobile(mobile)" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <a role="button" (click)="deleteMobile(mobile.mobileImeIID)" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+<div class="container">
+    <h1 style="margin-left: 24%;"><u>List Of Mobiles</u></h1>
+</div>
+<div class="container1">
+    <button class="btn btn-primary" (click)=addEmployee() style="margin-left: 25%;">Add Mobile</button>
+</div>
+<mat-spinner class="spin" *ngIf="showSpinner"></mat-spinner>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="mobileImeIID">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bolder;"><u> Mobile IMEIID </u></th>
+        <td mat-cell *matCellDef="let element"> {{element.mobileImeIID}} </td>
+    </ng-container>
+    <ng-container matColumnDef="modelName">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bolder;"><u> Model </u></th>
+        <td mat-cell *matCellDef="let element"> {{element.modelName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="mobilePrice">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bolder;"><u> Price </u></th>
+        <td mat-cell *matCellDef="let element"> {{element.mobilePrice}} </td>
+    </ng-container>
+    <ng-container matColumnDef="storeId">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bolder;"><u> Store ID </u></th>
+        <td mat-cell *matCellDef="let element"> {{element.storeId}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bolder;"><u> Actions</u></th>
+        <td mat-cell *matCellDef="let element"> <a role="button" (click)="deleteMobile(element.mobileImeIID)"><span class="material-icons">
+            delete_forever
+            </span></a>
+            <a role="button" (click)="editMobile(element)"><span class="material-icons">
+            mode_edit
+            </span></a></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

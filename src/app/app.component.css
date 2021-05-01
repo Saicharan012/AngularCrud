@@ -1,0 +1,28 @@
+a {
+    text-decoration: none;
+}
+
+.footer {
+    position: relative;
+    bottom: -100px;
+    text-align: center;
+    background-color: rgb(230, 223, 223);
+    padding: 3px;
+}
+
+
+/* body {
+    background-image: url(src\assets\pexels-suzy-hazelwood-1629236.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+} */
+
+
+/* .container {
+    background: white;
+    width: 50%;
+    padding: 40px;
+    margin: 100px auto;
+    font-family: calibri;
+    border-radius: 10px;
+} */
